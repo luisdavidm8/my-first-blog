@@ -4,19 +4,15 @@
     </head>
     <body>
         <div>
-            <h1><a href="/">Tutorial DjangoGirls - LUIS DAVID MERCADO MALO</a></h1>
+            <h1><a href="/">Django Girls Blog</a></h1>
         </div>
-
-        <div>
-            <p>Publicado y terminado: 15.04.2024, 20:16</p>
-            <h2><a href="">Este es mi primer post</a></h2>
-            <p>Este es un post sencillo aun no tiene Css para que se vea bonito pero lo mas dificil ya esta hecho</p>
-        </div>
-
-        <div>
-            <p>Publicado y terminado: 15.04.2024, 20:16</p>
-            <h2><a href="">Mi otro post</a></h2>
-            <p>Queda pendiente, datos dinamicos, plantillas, css, extendiendo, ampliar y formularios </p>
-        </div>
+        
+        {% for post in posts %}
+            <div>
+                <p> publicado: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
